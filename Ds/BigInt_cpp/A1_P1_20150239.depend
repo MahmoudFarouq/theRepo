@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1488029305 source:c:\users\mahmo\desktop\a1_p1_20150239\src\bigdecimalint.cpp
+	"BigDecimalInt.h"
+
+1488028579 c:\users\mahmo\desktop\a1_p1_20150239\include\bigdecimalint.h
+	<iostream>
+
+1488029327 source:c:\users\mahmo\desktop\a1_p1_20150239\main.cpp
+	<iostream>
+	<bitset>
+	"BigDecimalInt.h"
+
+1488137309 source:c:\users\mahmo\desktop\a1_20150239\a1_p1_20150239\main.cpp
+	<iostream>
+	<bitset>
+	"BigDecimalInt.h"
+
+1488128202 c:\users\mahmo\desktop\a1_20150239\a1_p1_20150239\include\bigdecimalint.h
+	<iostream>
+
+1488137725 source:c:\users\mahmo\desktop\a1_20150239\a1_p1_20150239\src\bigdecimalint.cpp
+	"BigDecimalInt.h"
+
