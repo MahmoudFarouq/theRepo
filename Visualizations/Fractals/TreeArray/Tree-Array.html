@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nature Of Code | TestFractals</title>
+	<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.js"></script>
+
+	<script >
+		var tree = [];
+		var leaves = [];
+
+		function setup() {
+			createCanvas(640, 360);
+			var B = new Branch( createVector(width/2, height), createVector(0, -1), 100 );
+			tree.push(B);
+		}
+		function draw() {
+			background(255);
+			for(var i = 0; i < tree.length; i++){
+				tree[i].update();
+				tree[i].render();
+
+				if(tree[i].timeToBranch()){
+					if(tree.length < 1024){
+						tree.push( tree[i].branch(30) );
+						tree.push( tree[i].branch(-25));
+					}else{
+						leaves.push( new Leaf(tree[i].end) );
+					}
+				}
+			}
+			for(var i = 0; i < leaves.length; i++){
+				leaves[i].display();
+				leaves[i].update();
+			}
+		}
+
+		function Leaf(pos){
+			this.pos = pos.copy();
+			this.vel = createVector(0, 0);
+			this.acc = createVector(0, 0.1);
+
+			this.update = function(){
+			    this.vel.add(this.acc);
+			    this.pos.add(this.vel);
+			}
+			this.display = function(){
+				noStroke();
+				fill(50, 100);
+				ellipse(this.pos.x, this.pos.y, 4, 4);
+			}
+		}
+
+		function Branch(start, vel, n){
+			this.start = start.copy();
+			this.end   = start.copy();
+			this.vel   = vel.copy();
+			this.timerStart = n;
+			this.timer = n;
+			this.growing = true;
+
+			this.update = function(){
+				if(this.growing){
+					this.end.add(this.vel);
+				}
+			}
+
+			this.render = function(){
+				stroke(0);
+				line(this.start.x, this.start.y, this.end.x, this.end.y);
+			}
+
+			this.timeToBranch = function(){
+				this.timer--;
+				if(this.timer < 0 && this.growing){
+					this.growing = false;
+					return true;
+				}else{
+					return false;
+				}
+			}
+
+			this.branch = function(angle){
+				var theta  = this.vel.heading() + radians(angle);
+				var m 	   = this.vel.mag();
+				var newvel = createVector(m * cos(theta), m * sin(theta));
+				return new Branch(this.end, newvel, this.timerStart * 0.66);
+			}
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

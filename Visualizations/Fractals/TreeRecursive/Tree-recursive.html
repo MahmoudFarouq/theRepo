@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nature Of Code | Fractals</title>
+	<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.js"></script>
+
+	<script >
+		var angle;
+		function setup()
+		{
+			createCanvas(800, 640);
+		}
+		function draw()
+		{
+			//for branch
+			angle = map(mouseX, 0, width, 0, PI / 2);
+
+			/*	map
+				map element mouseX
+				When it's 0 make it 0
+				when it;s width make it PI/2
+				when between, make ration between
+			*/
+			translate(width / 2, height);
+			//
+			background(51);
+			stroke(255);
+			noFill();
+			Branch(100);
+			//Cantor(100, 200, 400);
+			//drawCircle(width/2, height/2, 300, 300);
+			//noLoop();		//to stop the loop from redrawing
+		}
+
+		function drawCircle(x, y, d){
+			if(d <= 5)
+				return;
+			ellipse(x, y, d, d);
+			drawCircle(x + d/2, y, d/2);
+			drawCircle(x - d/2, y, d/2);
+			drawCircle(x, y + d/2, d/2);
+			drawCircle(x, y - d/2, d/2);
+		}
+		function Cantor(x, y, len){
+			strokeWeight(2);
+			if(len <= 1)
+				return;
+
+			h = 30;
+			line(x, y, x+len, y);
+			y += h;
+			Cantor(x, y, len/3);
+			Cantor(x+(len/3)*2, y, len/3);
+		}
+		function Branch(len){
+			strokeWeight(2);
+			line(0, 0, 0, -len);
+
+			if(len <= 2)
+				return;
+
+			translate(0, -len);
+			len *= 0.66;
+
+			push();				//saves the current transformation state
+			rotate(angle);
+			Branch(len);
+			pop();				//restores the last transformation state
+
+			push();
+			rotate(-angle);
+			Branch(len);
+			pop();
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
