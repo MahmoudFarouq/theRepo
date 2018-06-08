@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>Fifteen Materials/1-filled-xl.png</file>
+        <file>Fifteen Materials/2-filled-xl.png</file>
+        <file>Fifteen Materials/3-filled-xl.png</file>
+        <file>Fifteen Materials/4-filled-xl.png</file>
+        <file>Fifteen Materials/5-filled-xl.png</file>
+        <file>Fifteen Materials/6-filled-xl.png</file>
+        <file>Fifteen Materials/7-filled-xl.png</file>
+        <file>Fifteen Materials/8-filled-xl.png</file>
+        <file>Fifteen Materials/9-filled-xl.png</file>
+        <file>Fifteen Materials/A.png</file>
+        <file>Fifteen Materials/B.png</file>
+        <file>Fifteen Materials/C.png</file>
+        <file>Fifteen Materials/D.png</file>
+        <file>Fifteen Materials/E.png</file>
+        <file>Fifteen Materials/F.png</file>
+        <file>Fifteen Materials/PLAYER.png</file>
+    </qresource>
+</RCC>
