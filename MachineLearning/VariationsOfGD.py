@@ -80,9 +80,8 @@ def batch_gradient_descent_multi_vectorized():
 		cost = (1/m) * (hx - y)**2
 		cost = sum(cost)
 
-		w_ = w.copy()
-		w_ = w - alpha*(1/m)*(hx - y).dot(X)
-		w = w_
+		w = w - alpha*(1/m)*(hx - y).dot(X)
+		
 		print("w = ", w, ", c = ", cost)
 		_s.append(_)
 		costs.append(cost)
